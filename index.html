@@ -68,7 +68,7 @@
   top: 60%;
   left: 15%;
   width: 25%;
-  height: 17.29%;
+  height: 15%;
   background-image: url("/images/enter-btn.png");
 }
 
@@ -76,7 +76,7 @@
   top: 60%;
   left: 60%;
   width: 25%;
-  height: 17.29%;
+  height: 15%;
   background-image: url("/images/suggest-btn.png");
 }
 .button {
@@ -96,6 +96,33 @@
     left: 55%;
     width: 25%;
     height: 10%;
+  }
+}
+
+.button {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease, filter 0.1s ease;
+  animation: bounce 2s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-5px);
   }
 }
     
