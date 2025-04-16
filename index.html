@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+사용자가 **모바일 브라우저에서 ‘홈 화면에 추가’**를 눌렀을 때
+→ **원하는 이미지(앱 아이콘처럼)**가 뜨도록 만들기.
+<!-- manifest 연결 -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- iOS 대응 (애플은 manifest를 안 씀) -->
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="팽이초콜릿">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
@@ -79,13 +91,4 @@
 </html>
 
 
-사용자가 **모바일 브라우저에서 ‘홈 화면에 추가’**를 눌렀을 때
-→ **원하는 이미지(앱 아이콘처럼)**가 뜨도록 만들기.
-<!-- manifest 연결 -->
-<link rel="manifest" href="/manifest.json">
 
-<!-- iOS 대응 (애플은 manifest를 안 씀) -->
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="팽이초콜릿">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
