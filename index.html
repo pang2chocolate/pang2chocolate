@@ -125,6 +125,29 @@
     transform: translateY(-5px);
   }
 }
+
+
+.button {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease, filter 0.1s ease;
+  animation: bounce 2s infinite;
+  animation-timing-function: ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.button:active {
+  transform: scale(0.95);
+  background-color: black;
+  background-image: none;
+}
+
+.button:hover {
+  filter: brightness(1.2);
+}
+
     
   </style>
 </head>
