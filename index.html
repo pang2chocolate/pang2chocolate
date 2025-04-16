@@ -62,10 +62,7 @@
       background-repeat: no-repeat;
       background-position: center;
       transition: transform 0.1s ease, filter 0.1s ease;
-      animation: bounce 2s infinite;
-      animation-timing-function: ease-in-out;
-      -webkit-tap-highlight-color: transparent;
-      outline: none;
+      animation: bounce 2s infinite;infinite ease-in-out;
       aspect-ratio: 1 / 1;
     }
 
@@ -121,18 +118,18 @@
 }
   
    /* 🔁 bounce 애니메이션 */
-    @keyframes bounce {
+    @keyframes bounceUpDown {
       0%, 100% {
-        transform: translateY(0);
+        top: 63.4%;
       }
       30% {
-        transform: translateY(-6px);
+        top: 62.8%;
       }
       50% {
-        transform: translateY(0);
+        top: 63.4%;
       }
       70% {
-        transform: translateY(-3px);
+        top: 63.0%;
       }
     }
 
