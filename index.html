@@ -67,10 +67,11 @@
     filter: brightness(1.2);
   }
 
-  /* ✊ active 시 효과: 눌리는 느낌  */
+  /* ✊ 스케일 + 살짝 어두워짐 (감각적 눌림)  */
   .button:active {
-    transform: scale(0.95);                                             
-  }
+  transform: scale(0.95) translateY(1px);
+  filter: brightness(0.92);
+}
 
   /* 📍 입장 버튼 */
   .enter-button {
