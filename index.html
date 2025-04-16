@@ -86,7 +86,28 @@
         height: 22vw;
       }
     }
+.button {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  animation: bounce 2s infinite;
+  animation-timing-function: ease-in-out;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
 
+/* 마우스를 올렸을 때 밝아짐 */
+.button:hover {
+  filter: brightness(1.2);
+}
+
+/* 클릭했을 때 컬러 반전 + 눌림 */
+.button:active {
+  transform: scale(0.95);
+  filter: invert(1);
+}
     @keyframes bounce {
       0%, 100% {
         transform: translateY(0);
