@@ -21,62 +21,81 @@
 <meta name="apple-mobile-web-app-title" content="팽이초콜릿">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>팽이초콜릿</title>
   <style>
     body {
       margin: 0;
       padding: 0;
     }
+
     .container {
       position: relative;
       width: 100%;
       max-width: 1920px;
       margin: 0 auto;
     }
+
     .main-image {
       width: 100%;
       height: auto;
       display: block;
     }
+
     .button {
       position: absolute;
       cursor: pointer;
       z-index: 10;
     }
-    /* 위치 조정 (이미지 기준으로 비율 설정) */
+
+    /* 기본 위치 (데스크탑 기준 비율) */
     .enter-button {
       top: 69%;
       left: 29.5%;
       width: 16%;
       height: 7%;
     }
+
     .suggest-button {
       top: 69%;
       left: 54%;
       width: 16%;
       height: 7%;
     }
+
+    /* 모바일 대응 */
+    @media screen and (max-width: 768px) {
+      .enter-button {
+        top: 69%;
+        left: 26%;
+        width: 21%;
+        height: 8%;
+      }
+
+      .suggest-button {
+        top: 69%;
+        left: 53%;
+        width: 21%;
+        height: 8%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <img class="main-image" src="https://www.pang2chocolate.com/images/main.jpg" alt="팽이초콜릿 메인">
-    
+    <img
+      class="main-image"
+      src="https://www.pang2chocolate.com/images/main.jpg"
+      alt="팽이초콜릿 메인"
+    />
+
     <a href="https://app.pang2chocolate.com" class="button enter-button"></a>
     <a href="https://tally.so/r/w5O556" class="button suggest-button"></a>
   </div>
 
-  
-</head>
-<body>
-  <div class="container">
-    <img src="image.png" alt="팽이초콜릿 구조도" class="hero-img" />
-    <a href="https://app.pang2chocolate.com" class="click-area enter-btn">입장</a>
-    <a href="https://tally.so/r/w5O556" class="click-area suggest-btn">제안</a>
-  </div>
 </body>
 </html>
 
