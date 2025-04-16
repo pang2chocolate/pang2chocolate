@@ -61,13 +61,11 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    animation: bounce 2s infinite ease-in-out;
-    transition: transform 0.1s ease, filter 0.1s ease;
-
-.button:active {
-  transform: translateY(-2px) scale(0.92);  /* 💡 바운스 중 위치 + 눌림 스케일 동시 적용 */
-  filter: brightness(85%);
-}
+    transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
+    animation: bounce 2s infinite;
+    animation-timing-function: ease-in-out;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
     
     /* ✅ 정사각형 비율 고정 */
     aspect-ratio: 1 / 1;                     /* 1:1 비율 유지 */
@@ -77,6 +75,13 @@
   .button:hover {
     filter: brightness(1.2);
   }
+
+  /* ✊ 누를 시 살짝 어두워지고, 작아지고, 눌리는 듯한 느낌  */
+  .button:active {
+  transform: scale(0.92);     
+  filter: brightness(85%);
+  animation-play-state: paused;
+}
 
   /* 📍 입장 버튼 */
   .enter-button {
@@ -110,18 +115,27 @@
   }
 
   /* 🔁 통통 튀는 애니메이션 */.
- @keyframes bounce {
+  --bounceY: 0px;
+  transform: translateY(var(--bounceY)) scale(1);
+}
+
+  .button:active {
+  transform: translateY(var(--bounceY)) scale(0.92); /* ✅ bounce + 클릭 */
+  filter: brightness(85%);
+}
+  
+  @keyframes bounce {
   0%, 100% {
-    transform: translateY(0) scale(1);
+    --bounceY: 0px;
   }
   30% {
-    transform: translateY(-2px) scale(1);
+    --bounceY: -2px;
   }
   50% {
-    transform: translateY(0) scale(1);
+    --bounceY: 0px;
   }
   70% {
-    transform: translateY(-1px) scale(1);
+    --bounceY: -1px;
   }
 }
   
