@@ -54,34 +54,32 @@
 
   /* 🎯 공통 버튼 스타일 */
   .button {
-    position: absolute;
-    display: block;                          /* 클릭 영역 일치 */
-    cursor: pointer;
-    z-index: 10;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
-    animation: bounce 2s infinite;
-    animation-timing-function: ease-in-out;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    
-    /* ✅ 정사각형 비율 고정 */
-    aspect-ratio: 1 / 1;                     /* 1:1 비율 유지 */
-  }
+      position: absolute;
+      display: block;
+      cursor: pointer;
+      z-index: 10;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.1s ease, filter 0.1s ease;
+      animation: bounce 2s infinite;
+      animation-timing-function: ease-in-out;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      aspect-ratio: 1 / 1;
+    }
 
   /* ✨ hover 시 효과: 살짝 밝아짐 */
   .button:hover {
     filter: brightness(1.2);
   }
 
-  /* ✊ 누를 시 살짝 어두워지고, 작아지고, 눌리는 듯한 느낌  */
-  .button:active {
-  transform: scale(0.92);     
-  filter: brightness(85%);
-  animation-play-state: paused;
-}
+  /* ✊ 클릭 시 작아짐 + 어두워짐 + bounce 중단 */
+    .button:active {
+      transform: translateY(0) scale(0.92);  /* ✅ 눌림 + bounce 위치 초기화 */
+      filter: brightness(85%);
+      animation-play-state: paused;         /* 눌리는 동안 bounce 일시 정지 */
+    }
 
   /* 📍 입장 버튼 */
   .enter-button {
@@ -124,20 +122,21 @@
   filter: brightness(85%);
 }
   
-  @keyframes bounce {
-  0%, 100% {
-    --bounceY: 0px;
-  }
-  30% {
-    --bounceY: -2px;
-  }
-  50% {
-    --bounceY: 0px;
-  }
-  70% {
-    --bounceY: -1px;
-  }
-}
+   /* 🔁 bounce 애니메이션 */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-2px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      70% {
+        transform: translateY(-1px);
+      }
+    }
 
   
 </style>
