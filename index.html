@@ -115,20 +115,29 @@
   }
 
   /* 🔁 통통 튀는 애니메이션 */.
+  --bounceY: 0px;
+  transform: translateY(var(--bounceY)) scale(1);
+}
+
+  .button:active {
+  transform: translateY(var(--bounceY)) scale(0.92); /* ✅ bounce + 클릭 */
+  filter: brightness(85%);
+}
+  
   @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    30% {
-      transform: translateY(-2px);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    70% {
-      transform: translateY(-1px);
-    }
+  0%, 100% {
+    --bounceY: 0px;
   }
+  30% {
+    --bounceY: -2px;
+  }
+  50% {
+    --bounceY: 0px;
+  }
+  70% {
+    --bounceY: -1px;
+  }
+}
 
   
 </style>
