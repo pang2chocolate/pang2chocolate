@@ -78,9 +78,10 @@
 
   /* ✊ 누를 시 살짝 어두워지고, 작아지고, 눌리는 듯한 느낌  */
   .button:active {
-  transform: scale(0.7);
+  transform: translateY(0) scale(0.92);   /* ✅ 동시에 적용 */
   filter: brightness(85%);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation-play-state: paused;           /* 선택: bounce 일시 멈춤 */
 }
 
   /* 📍 입장 버튼 */
