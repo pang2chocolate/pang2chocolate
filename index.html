@@ -20,139 +20,108 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="팽이초콜릿">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
 
-    .container {
-      position: relative;
-      width: 100%;
-      max-width: 1920px;
-      margin: 0 auto;
-    }
+<style>
+  /* 기본 레이아웃 설정 */
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-    .main-image {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+  /* 메인 컨테이너 */
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
 
-    
-.button {
-  position: absolute;
-  cursor: pointer;
-  z-index: 10;
-  animation: bounce 2s infinite;
-  animation-timing-function: ease-in-out;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
-  -webkit-tap-highlight-color: transparent; /* 모바일 클릭시 파란 테두리 제거 */
-  outline: none;
-}
+  /* 메인 이미지 */
+  .main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-/* 마우스를 올렸을 때 밝아짐 */
-.button:hover {
-  filter: brightness(1.2);
-}
+  /* 🎯 공통 버튼 스타일 */
+  .button {
+    position: absolute;                     
+    cursor: pointer;                        
+    z-index: 10;                            
+    background-size: contain;               
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
+    animation: bounce 2s infinite;          
+    animation-timing-function: ease-in-out;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
 
-.button:active {
-      transform: scale(0.95); /* 클릭 시 살짝 작아짐 */
-    }
+  /* ✨ hover 시 효과: 살짝 밝아짐 */
+  .button:hover {
+    filter: brightness(1.2);
+  }
 
-/* 위치와 크기를 % 기준으로 조정 */
-.enter-button {
-  top: 57%;
-  left: 15%;
-  width: 27%;
-  height: 27%;
-  background-size: 100% 100%;
-  background-image: url("/images/enter-btn.png");
-}
+  /* ✊ active 시 효과: 눌리는 느낌  */
+  .button:active {
+    transform: scale(0.95);                               
+    background-image: none;                
+  }
 
-.suggest-button {
-  top: 57%;
-  left: 60%;
-  width: 27%;
-  height: 27%;
-  background-size: 100% 100%;
-  background-image: url("/images/suggest-btn.png");
-}
-
-
-/* 모바일 대응 */
-@media screen and (max-width: 768px) {
+  /* 📍 입장 버튼 위치 + 이미지 */
   .enter-button {
-    top: 58%;
-    left: 10%;
+    top: 57%;
+    left: 15%;
     width: 27%;
     height: 27%;
-    background-size: 100% 100%;
+    background-image: url("/images/enter-btn.png");
   }
 
+  /* 📍 제안 버튼 위치 + 이미지 */
   .suggest-button {
-    top: 58%;
-    left: 55%;
+    top: 57%;
+    left: 60%;
     width: 27%;
     height: 27%;
-    background-size: 100% 100%;
+    background-image: url("/images/suggest-btn.png");
   }
-}
 
-.button {
-  position: absolute;
-  cursor: pointer;
-  z-index: 10;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: transform 0.1s ease, filter 0.1s ease;
-  animation: bounce 2s infinite;
-  animation-timing-function: ease-in-out;
-}
+  /* 📱 모바일 대응: 버튼 위치 및 크기 재조정 */
+  @media screen and (max-width: 768px) {
+    .enter-button {
+      top: 58%;
+      left: 10%;
+      width: 27%;
+      height: 27%;
+    }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+    .suggest-button {
+      top: 58%;
+      left: 55%;
+      width: 27%;
+      height: 27%;
+    }
   }
-  30% {
-    transform: translateY(-10px);
+
+  /* 🔁 통통 튀는 애니메이션 정의 */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    70% {
+      transform: translateY(-5px);
+    }
   }
-  50% {
-    transform: translateY(0);
-  }
-  70% {
-    transform: translateY(-5px);
-  }
-}
+</style>
 
-
-.button {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: transform 0.1s ease, filter 0.1s ease;
-  animation: bounce 2s infinite;
-  animation-timing-function: ease-in-out;
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-}
-
-.button:active {
-  transform: scale(0.95);
-  background-color: black;
-  background-image: none;
-}
-
-.button:hover {
-  filter: brightness(1.2);
-}
-
-    
-  </style>
+  
 </head>
 <body>
   <div class="container">
