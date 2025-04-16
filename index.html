@@ -45,17 +45,21 @@
 
   /* 🎯 공통 버튼 스타일 */
   .button {
-    position: absolute;                     
-    cursor: pointer;                        
-    z-index: 10;                            
-    background-size: contain;               
+    position: absolute;
+    display: block;                          /* 클릭 영역 일치 */
+    cursor: pointer;
+    z-index: 10;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
-    animation: bounce 2s infinite;          
+    animation: bounce 2s infinite;
     animation-timing-function: ease-in-out;
     -webkit-tap-highlight-color: transparent;
     outline: none;
+    
+    /* ✅ 정사각형 비율 고정 */
+    aspect-ratio: 1 / 1;                     /* 1:1 비율 유지 */
   }
 
   /* ✨ hover 시 효과: 살짝 밝아짐 */
@@ -69,42 +73,38 @@
     background-image: none;                
   }
 
-  /* 📍 입장 버튼 위치 + 이미지 */
+  /* 📍 입장 버튼 */
   .enter-button {
     top: 57%;
     left: 15%;
     width: 27%;
-    height: 27%;
     background-image: url("/images/enter-btn.png");
   }
 
-  /* 📍 제안 버튼 위치 + 이미지 */
+  /* 📍 제안 버튼 */
   .suggest-button {
     top: 57%;
     left: 60%;
     width: 27%;
-    height: 27%;
     background-image: url("/images/suggest-btn.png");
   }
 
-  /* 📱 모바일 대응: 버튼 위치 및 크기 재조정 */
+  /* 📱 모바일 대응 */
   @media screen and (max-width: 768px) {
     .enter-button {
       top: 58%;
       left: 10%;
-      width: 27%;
-      height: 27%;
+      width: 30%;
     }
 
     .suggest-button {
       top: 58%;
       left: 55%;
-      width: 27%;
-      height: 27%;
+      width: 30%;
     }
   }
 
-  /* 🔁 통통 튀는 애니메이션 정의 */
+  /* 🔁 통통 튀는 애니메이션 */
   @keyframes bounce {
     0%, 100% {
       transform: translateY(0);
@@ -119,6 +119,8 @@
       transform: translateY(-5px);
     }
   }
+
+  
 </style>
 
   
