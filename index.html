@@ -66,6 +66,7 @@
       background-color: transparent;
       animation: bounce 2s infinite ease-in-out;
       transition: transform 0.1s ease, filter 0.1s ease;
+      aspect-ratio: 1 / 1;               
     }
 
     .button:hover {
@@ -76,26 +77,8 @@
       transform: scale(0.92);
       filter: brightness(85%);
       animation: none; /* 클릭 중엔 애니메이션 멈춤 */
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      30% {
-        transform: translateY(-6px);
-      }
-      50% {
-        transform: translateY(0);
-      }
-      70% {
-        transform: translateY(-3px);
-      }
-    }
+    } 
     
-    /* ✅ 정사각형 비율 고정 */
-    aspect-ratio: 1 / 1;                     /* 1:1 비율 유지 */
-  }
 
   /* 📍 입장 버튼 */
   .enter-button {
@@ -126,7 +109,22 @@
       left: 59.3%;
       width: 30%;
     }
-  }
+
+ @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-6px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      70% {
+        transform: translateY(-3px);
+      }
+    }
+    
   
 </style>
 
