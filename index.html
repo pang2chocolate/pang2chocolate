@@ -103,19 +103,14 @@
   filter: brightness(1.2);
 }
 
-/* 클릭했을 때 컬러 반전 + 눌림 */
+/* active: 눌렀을 때 검정색으로 바뀜 */
 .button:active {
   transform: scale(0.95);
-  filter: invert(1);
+  background-image: none;
+  background-color: black;
 }
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
-    }
+
+    
   </style>
 </head>
 <body>
