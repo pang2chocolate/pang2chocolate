@@ -64,7 +64,12 @@
       background-color: transparent;
       animation: bounce 2s infinite ease-in-out;
       transition: transform 0.1s ease, filter 0.1s ease;
-      aspect-ratio: 1 / 1;               
+      aspect-ratio: 1 / 1;            
+    /* ✅ 파란 테두리 제거 관련 */
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+}
     }
 
     .button:hover {
@@ -93,7 +98,21 @@
     width: 29%;
     background-image: url("/images/suggest-btn.png");
   }
-
+@keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-6px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      70% {
+        transform: translateY(-3px);
+      }
+    }
+  
   /* 📱 모바일 대응 */
   @media screen and (max-width: 768px) {
     .enter-button {
