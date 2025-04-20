@@ -145,8 +145,8 @@
 <div id="main" style="display:none;">
   <div class="container">
     <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
-    <a href="#" class="button enter-button" onclick="showLoadingAndAction('navigate', 'https://app.pang2chocolate.com')"></a>
-    <a href="#" class="button suggest-button" onclick="showLoadingAndAction('navigate', 'https://tally.so/r/w5O556')"></a>
+  <a href="https://app.pang2chocolate.com" class="button enter-button" onclick="return showLoading();"></a>
+<a href="https://tally.so/r/w5O556" class="button suggest-button" onclick="return showLoading();"></a>
   </div>
 </div>
 
@@ -157,25 +157,39 @@
 
 <!-- ✅ 통합 스크립트 -->
 <script>
-  function showLoadingAndAction(actionType, url = '') {
-    document.getElementById("loading").style.display = "flex";
-    document.getElementById("main").style.display = "none";
+  <script>
+function showLoading() {
+  document.getElementById("loading").style.display = "flex";  // 로딩 띄우기
+  document.getElementById("main").style.display = "none";      // 메인 숨기기
 
-    if (actionType === 'init') {
-      setTimeout(function() {
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("main").style.display = "block";
-      }, 2000); // ✅ 초기 진입시 2.0초 후 메인화면
-    } else if (actionType === 'navigate') {
-      setTimeout(function() {
-        window.location.href = url; // ✅ 새 페이지로 이동
-      }, 700); // ✅ 버튼 클릭시 0.7초 후 이동
-    }
+  // ✅ return true를 해야 원래 <a href>로 이동이 정상 작동함
+  return true;
+}
+<script>
+function showLoading(mode = 'init') {
+  document.getElementById("loading").style.display = "flex";
+  document.getElementById("main").style.display = "none";
+
+  if (mode === 'init') {
+    // 초기 진입 로딩 (2000ms 유지)
+    setTimeout(function() {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("main").style.display = "block";
+    }, 2000);
+    return false; // 초기 로딩은 이동 안함
+  } else if (mode === 'navigate') {
+    // 버튼 클릭 후 로딩 (700ms 유지)
+    setTimeout(function() {
+      // ✅ 여기선 아무것도 안하고, 원래 a태그가 이동하게
+    }, 700);
+    return true; // 이동 허용
   }
+}
 
-  window.addEventListener("load", function() {
-    showLoadingAndAction('init');
-  });
+// 초기 진입 시 실행
+window.addEventListener("load", function() {
+  showLoading('init');
+});
 </script>
 
 </body>
