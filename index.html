@@ -5,24 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>팽이초콜릿</title>
 
-  <!-- 메타 태그들 생략 (너가 이미 잘 넣어놨던 부분) -->
+  <!-- ✅ 검색엔진 최적화 메타태그 -->
+  <meta name="title" content="팽이는 우리가 함께 돌려야 더 재밌어" />
+  <meta name="description" content="팽이초콜릿 - 팽이는 우리가 함께 돌려야 더 재밌어" />
+  <meta name="keywords" content="팽이초콜릿 - 팽이는 우리가 함께 돌려야 더 재밌어" />
+  <meta name="author" content="팽이초콜릿" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ✅ manifest 연결 -->
+  <link rel="manifest" href="/manifest.json?v=1">
+
+  <!-- ✅ 테마 색 설정 -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- ✅ SNS 공유 미리보기 -->
+  <meta property="og:title" content="팽이초콜릿" />
+  <meta property="og:description" content="팽이는 우리가 함께 돌려야 더 재밌어" />
+  <meta property="og:image" content="/images/preview.jpg" />
+  <meta property="og:url" content="https://www.pang2chocolate.com/" />
+  <meta property="og:type" content="website" />
+
+  <!-- ✅ 브라우저 탭 아이콘 -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- ✅ iOS 홈화면 아이콘 -->
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" sizes="192x192">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="팽이초콜릿">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 <style>
   body {
     margin: 0;
     padding: 0;
   }
+
   .container {
     position: relative;
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
   }
+
   .main-image {
     width: 100%;
     height: auto;
     display: block;
   }
+
   .button {
     position: absolute;
     cursor: pointer;
@@ -39,32 +69,38 @@
     outline: none;
     user-select: none;
   }
+
   .button:hover {
     filter: brightness(1.1);
   }
+
   .button:active {
     transform: scale(0.92);
     filter: brightness(85%);
     animation: none;
   }
+
   .enter-button {
     top: 63.4%;
     left: 12.4%;
     width: 29%;
     background-image: url("/images/enter-btn.png");
   }
+
   .suggest-button {
     top: 63.4%;
     left: 59.6%;
     width: 29%;
     background-image: url("/images/suggest-btn.png");
   }
+
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     30% { transform: translateY(-8px); }
     50% { transform: translateY(0); }
     70% { transform: translateY(-4px); }
   }
+
   @media screen and (max-width: 768px) {
     .enter-button {
       top: 63.1%;
@@ -76,6 +112,7 @@
       left: 59.3%;
       width: 30%;
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       30% { transform: translateY(-2px); }
@@ -83,6 +120,7 @@
       70% { transform: translateY(-1px); }
     }
   }
+
   #loading {
     display: flex;
     justify-content: center;
@@ -107,43 +145,41 @@
 <div id="main" style="display:none;">
   <div class="container">
     <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
-    <a href="https://app.pang2chocolate.com" class="button enter-button" onclick="return showLoading('navigate');"></a>
-    <a href="https://tally.so/r/w5O556" class="button suggest-button" onclick="return showLoading('navigate');"></a>
+<a href="#" class="button enter-button" onclick="delayedRedirect('https://app.pang2chocolate.com')"></a>
+<a href="#" class="button suggest-button" onclick="delayedRedirect('https://tally.so/r/w5O556')"></a>
   </div>
 </div>
 
-<!-- ✅ SEO용 숨김 텍스트 -->
+<!-- ✅ 숨어있는 SEO용 텍스트 -->
 <div style="position: absolute; left: -9999px; top: -9999px;">
   팽이초콜릿 - 좋은제품을 좋은가격에
 </div>
 
-<!-- ✅ 로딩 통합 스크립트 -->
+<!-- ✅ 통합 스크립트 -->
 <script>
-function showLoading(mode = 'init') {
-  document.getElementById("loading").style.display = "flex";
-  document.getElementById("main").style.display = "none";
+  function showLoadingAndAction(actionType, url = '') {
+    document.getElementById("loading").style.display = "flex";
+    document.getElementById("main").style.display = "none";
 
-  if (mode === 'init') {
-    // 초기 진입 시 로딩 2000ms
-    setTimeout(function() {
-      document.getElementById("loading").style.display = "none";
-      document.getElementById("main").style.display = "block";
-    }, 2000);
-    return false; // 초기 진입은 링크 이동이 아니라 메인 보여주기
-  } else if (mode === 'navigate') {
-    // 버튼 클릭 시 로딩 700ms
-    setTimeout(function() {
-      // 아무것도 안하고 그냥 이동 (a태그 href 기본 동작)
-    }, 700);
-    return true; // 이동 허용
+    if (actionType === 'init') {
+      setTimeout(function() {
+        document.getElementById("loading").style.display = "flex";
+        document.getElementById("main").style.display = "none";
+      }, 2000); // ✅ 초기 진입시 2.0초 후 메인화면
+    } else if (actionType === 'navigate') {
+      setTimeout(function() {
+        window.location.replace(url); // ✅ 새 페이지로 이동
+      }, 700); // ✅ 버튼 클릭시 0.7초 후 이동
+    }
   }
-}
 
-// ✅ 초기 진입 시 로딩 실행
-window.addEventListener("load", function() {
-  showLoading('init');
-});
+  window.addEventListener("load", function() {
+    showLoadingAndAction('init');
+  });
 </script>
 
+
+
+  
 </body>
 </html>
