@@ -145,36 +145,41 @@
 <div id="main" style="display:none;">
   <div class="container">
     <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
-    <a href="#" class="button enter-button" onclick="showLoadingAndAction('navigate', 'https://app.pang2chocolate.com')"></a>
-    <a href="#" class="button suggest-button" onclick="showLoadingAndAction('navigate', 'https://tally.so/r/w5O556')"></a>
+    <a href="#" class="button enter-button" onclick="delayedRedirect('https://app.pang2chocolate.com'); return false;"></a>
+    <a href="#" class="button suggest-button" onclick="delayedRedirect('https://tally.so/r/w5O556'); return false;"></a>
   </div>
 </div>
 
-<!-- ✅ 숨어있는 SEO용 텍스트 -->
+<!-- ✅ SEO용 숨김 텍스트 -->
 <div style="position: absolute; left: -9999px; top: -9999px;">
   팽이초콜릿 - 좋은제품을 좋은가격에
 </div>
 
-<!-- ✅ 통합 스크립트 -->
+<!-- ✅ 스크립트 통합 -->
 <script>
-  function showLoadingAndAction(actionType, url = '') {
+  // 초기 진입 로딩
+  function showLoadingAndAction() {
     document.getElementById("loading").style.display = "flex";
     document.getElementById("main").style.display = "none";
 
-    if (actionType === 'init') {
-      setTimeout(function() {
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("main").style.display = "block";
-      }, 700); // ✅ 초기 진입시 0.7초 후 메인화면
-    } else if (actionType === 'navigate') {
-      setTimeout(function() {
-        window.location.replace(url); // ✅ 새 페이지로 이동
-      }, 700); // ✅ 버튼 클릭시 0.7초 후 이동
-    }
+    setTimeout(function() {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("main").style.display = "block";
+    }, 700); // 초기 진입 700ms
+  }
+
+  // 버튼 클릭시 이동 로딩
+  function delayedRedirect(url) {
+    document.getElementById("loading").style.display = "flex";
+    document.getElementById("main").style.display = "none";
+
+    setTimeout(function() {
+      window.location.href = url; // ✅ href 사용 (히스토리 정상)
+    }, 500); // 버튼 클릭 500ms
   }
 
   window.addEventListener("load", function() {
-    showLoadingAndAction('init');
+    showLoadingAndAction();
   });
 </script>
 
