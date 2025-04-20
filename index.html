@@ -150,6 +150,15 @@
 </head>
 <body>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("main").style.display = "block";
+    }, 1000); // ✅ 1초 (1000밀리초) 기다리고 메인화면 보여줌
+  });
+</script>
+  
  <div id="loading">
     <img src="/images/loading.jpg" alt="로딩 중..." />
   </div>
