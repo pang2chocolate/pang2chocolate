@@ -99,21 +99,22 @@
 
 <!-- ✅ 스크립트 통합 -->
 <script>
-  function showLoading() {
-    document.getElementById("loading").style.display = "flex";
-    document.getElementById("main").style.display = "none";
-    return true; // ✅ 이동은 브라우저가 a href로 정상처리
-  }
+function showLoading() {
+  document.getElementById("loading").style.display = "flex";
+  document.getElementById("main").style.display = "none";
 
-  function showLoadingOnLoad() {
-    document.getElementById("loading").style.display = "flex";
-    setTimeout(function() {
-      document.getElementById("loading").style.display = "none";
-      document.getElementById("main").style.display = "block";
-    }, 2000); // ✅ 초기 진입시 로딩 2초
-  }
+  return true; 
+  // ✅ 브라우저가 href를 기본 흐름으로 이동시킴
+}
 
-  window.addEventListener("load", showLoadingOnLoad);
+window.addEventListener("load", function() {
+  document.getElementById("loading").style.display = "flex";
+
+  setTimeout(function() {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("main").style.display = "block";
+  }, 2000); // 초기 진입 로딩
+});
 </script>
 
 </body>
