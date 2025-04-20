@@ -148,6 +148,40 @@
   
 </head>
 <body>
+
+ <div id="loading">
+    <img src="/images/loading.jpg" alt="로딩 중..." />
+  </div>
+
+  <div id="main" style="display:none;">
+    <div class="container">
+      <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
+      <a href="https://app.pang2chocolate.com" class="button enter-button"></a>
+      <a href="https://tally.so/r/w5O556" class="button suggest-button"></a>
+    </div>
+  </div>
+
+<style>
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: white;
+}
+#loading img {
+  width: 200px;
+}
+</style>
+
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("main").style.display = "block";
+  });
+</script>
+
+  
   <div style="position: absolute; left: -9999px; top: -9999px;">
   팽이초콜릿 - 좋은제품을 좋은가격에
 </div>
