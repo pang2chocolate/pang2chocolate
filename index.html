@@ -165,7 +165,7 @@
     setTimeout(function() {
       document.getElementById("loading").style.display = "none";
       document.getElementById("main").style.display = "block";
-    }, 700); // 초기 진입 700ms
+    }, 2000); // 초기 진입
   }
 
   // 버튼 클릭시 이동 로딩
@@ -175,7 +175,7 @@
 
     setTimeout(function() {
       window.location.href = url; // ✅ href 사용 (히스토리 정상)
-    }, 500); // 버튼 클릭 500ms
+    }, 700); // 버튼 클릭
   }
 
   window.addEventListener("load", function() {
