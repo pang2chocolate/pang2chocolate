@@ -2,7 +2,7 @@
   "name": "팽이초콜릿",
   "short_name": "팽이",
   "start_url": "/",
-  "display": "standalone",
+  "display": "browser",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
