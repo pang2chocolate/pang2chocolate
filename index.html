@@ -171,8 +171,8 @@
   <div id="main" style="display:none;">
     <div class="container">
       <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
-      <a href="https://app.pang2chocolate.com" class="button enter-button"></a>
-      <a href="https://tally.so/r/w5O556" class="button suggest-button"></a>
+     <a href="#" class="button enter-button" onclick="delayedRedirect('https://app.pang2chocolate.com')"></a>
+<a href="#" class="button suggest-button" onclick="delayedRedirect('https://tally.so/r/w5O556')"></a>
     </div>
   </div>
 
@@ -201,6 +201,17 @@
   팽이초콜릿 - 좋은제품을 좋은가격에
 </div>
 
+<script>
+  function delayedRedirect(url) {
+    document.getElementById("loading").style.display = "flex";  // 로딩화면 띄우기
+    document.getElementById("main").style.display = "none";      // 메인화면 숨기기
+    setTimeout(function() {
+      window.location.href = url;                                // 0.5초 뒤 이동
+    }, 2000); // (단위: ms, 500 = 0.5초)
+  }
+</script>
+
+  
 </body>
 
   
