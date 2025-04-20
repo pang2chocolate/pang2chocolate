@@ -4,46 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>팽이초콜릿</title>
-  
-<!-- ✅ [검색엔진 최적화용 메타태그] -->
-<title>팽이초콜릿</title>
-<meta name="title" content="팽이는 우리가 함께 돌려야 더 재밌어" />
-<meta name="description" content="팽이초콜릿 - 팽이는 우리가 함께 돌려야 더 재밌어" />
-<meta name="keywords" content="팽이초콜릿 - 팽이는 우리가 함께 돌려야 더 재밌어" />
-<meta name="author" content="팽이초콜릿" />
-<meta name="robots" content="index, follow" />
 
-<!-- ✅ manifest 연결 -->
+  <!-- ✅ 검색엔진 최적화 메타태그 -->
+  <meta name="title" content="팽이는 우리가 함께 돌려야 더 재밌어" />
+  <meta name="description" content="팽이초콜릿 - 팽이는 우리가 함께 돌려야 더 재밌어" />
+  <meta name="keywords" content="팽이초콜릿 - 팽이는 우리가 함께 돌려야 더 재밌어" />
+  <meta name="author" content="팽이초콜릿" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ✅ manifest 연결 -->
   <link rel="manifest" href="/manifest.json?v=1">
 
   <!-- ✅ 테마 색 설정 -->
   <meta name="theme-color" content="#000000">
-  
-  <!-- SNS 공유 미리보기 -->
+
+  <!-- ✅ SNS 공유 미리보기 -->
   <meta property="og:title" content="팽이초콜릿" />
   <meta property="og:description" content="팽이는 우리가 함께 돌려야 더 재밌어" />
   <meta property="og:image" content="/images/preview.jpg" />
   <meta property="og:url" content="https://www.pang2chocolate.com/" />
   <meta property="og:type" content="website" />
 
-  <!-- 브라우저 탭 아이콘 -->
+  <!-- ✅ 브라우저 탭 아이콘 -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-  <!-- iOS 홈화면 추가용 아이콘 -->
+  <!-- ✅ iOS 홈화면 아이콘 -->
   <link rel="apple-touch-icon" href="/icons/icon-192.png" sizes="192x192">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="팽이초콜릿">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="theme-color" content="#000000">
 
 <style>
-  /* 기본 레이아웃 설정 */
   body {
     margin: 0;
     padding: 0;
   }
 
-  /* 메인 컨테이너 */
   .container {
     position: relative;
     width: 100%;
@@ -51,45 +47,39 @@
     margin: 0 auto;
   }
 
-  /* 메인 이미지 */
   .main-image {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* 🎯 공통 버튼 스타일 */
   .button {
-      position: absolute;
-      cursor: pointer;
-      z-index: 10;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      border: none;
-      background-color: transparent;
-      animation: bounce 2s infinite ease-in-out;
-      transition: transform 0.1s ease, filter 0.1s ease;
-      aspect-ratio: 1 / 1;            
-    /* ✅ 파란 테두리 제거 관련 */
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-  user-select: none;
-}
-    }
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    animation: bounce 2s infinite ease-in-out;
+    transition: transform 0.1s ease, filter 0.1s ease;
+    aspect-ratio: 1 / 1;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+  }
 
-    .button:hover {
-      filter: brightness(1.1);
-    }
+  .button:hover {
+    filter: brightness(1.1);
+  }
 
-    .button:active {
-      transform: scale(0.92);
-      filter: brightness(85%);
-      animation: none; /* 클릭 중엔 애니메이션 멈춤 */
-    } 
-    
+  .button:active {
+    transform: scale(0.92);
+    filter: brightness(85%);
+    animation: none;
+  }
 
-  /* 📍 입장 버튼 */
   .enter-button {
     top: 63.4%;
     left: 12.4%;
@@ -97,122 +87,96 @@
     background-image: url("/images/enter-btn.png");
   }
 
-  /* 📍 제안 버튼 */
   .suggest-button {
     top: 63.4%;
     left: 59.6%;
     width: 29%;
     background-image: url("/images/suggest-btn.png");
   }
-@keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      30% {
-        transform: translateY(-8px);
-      }
-      50% {
-        transform: translateY(0);
-      }
-      70% {
-        transform: translateY(-4px);
-      }
-    }
-  
-  /* 📱 모바일 대응 */
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-8px); }
+    50% { transform: translateY(0); }
+    70% { transform: translateY(-4px); }
+  }
+
   @media screen and (max-width: 768px) {
     .enter-button {
       top: 63.1%;
       left: 11.5%;
       width: 30%;
     }
-
     .suggest-button {
       top: 63.1%;
       left: 59.3%;
       width: 30%;
     }
 
- @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      30% {
-        transform: translateY(-2px);
-      }
-      50% {
-        transform: translateY(0);
-      }
-      70% {
-        transform: translateY(-1px);
-      }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-2px); }
+      50% { transform: translateY(0); }
+      70% { transform: translateY(-1px); }
     }
-    
-  
-</style>
+  }
 
-  
+  #loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+  }
+  #loading img {
+    width: 200px;
+  }
+</style>
 </head>
+
 <body>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-      document.getElementById("loading").style.display = "none";
-      document.getElementById("main").style.display = "block";
-    }, 700); // ✅ 1초 (1000밀리초) 기다리고 메인화면 보여줌
-  });
-</script>
-  
- <div id="loading">
-    <img src="/images/loading.jpg" alt="로딩 중..." />
+<!-- ✅ 로딩 화면 -->
+<div id="loading">
+  <img src="/images/loading.jpg" alt="로딩 중..." />
+</div>
+
+<!-- ✅ 메인 화면 -->
+<div id="main" style="display:none;">
+  <div class="container">
+    <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
+    <a href="#" class="button enter-button" onclick="showLoadingAndAction('navigate', 'https://app.pang2chocolate.com')"></a>
+    <a href="#" class="button suggest-button" onclick="showLoadingAndAction('navigate', 'https://tally.so/r/w5O556')"></a>
   </div>
+</div>
 
-  <div id="main" style="display:none;">
-    <div class="container">
-      <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
-   <a href="#" class="button enter-button" onclick="delayedRedirect('https://app.pang2chocolate.com')"></a>
-<a href="#" class="button suggest-button" onclick="delayedRedirect('https://tally.so/r/w5O556')"></a>
-    </div>
-  </div>
-
-<style>
-#loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: black;
-}
-#loading img {
-  width: 200px;
-}
-</style>
-
-<script>
-  window.addEventListener("load", function() {
-    document.getElementById("loading").style.display = "none";
-    document.getElementById("main").style.display = "block";
-  });
-</script>
-
-  
-  <div style="position: absolute; left: -9999px; top: -9999px;">
+<!-- ✅ 숨어있는 SEO용 텍스트 -->
+<div style="position: absolute; left: -9999px; top: -9999px;">
   팽이초콜릿 - 좋은제품을 좋은가격에
 </div>
 
+<!-- ✅ 통합 스크립트 -->
 <script>
-  function delayedRedirect(url) {
+  function showLoadingAndAction(actionType, url = '') {
     document.getElementById("loading").style.display = "flex";
     document.getElementById("main").style.display = "none";
-    setTimeout(function() {
-      window.location.replace(url); // ✅ location.href 대신 location.replace!
-    }, 7000);
+
+    if (actionType === 'init') {
+      setTimeout(function() {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("main").style.display = "block";
+      }, 700); // ✅ 초기 진입시 0.7초 후 메인화면
+    } else if (actionType === 'navigate') {
+      setTimeout(function() {
+        window.location.replace(url); // ✅ 새 페이지로 이동
+      }, 700); // ✅ 버튼 클릭시 0.7초 후 이동
+    }
   }
+
+  window.addEventListener("load", function() {
+    showLoadingAndAction('init');
+  });
 </script>
 
-  
 </body>
-
-  
-</html
+</html>
