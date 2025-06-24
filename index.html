@@ -1,138 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>  
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>팽이초콜릿</title>
 
-  <!-- ✅ 메타 태그 -->
+  <!-- ✅ 메타 정보 (SEO 및 OG) -->
   <meta name="title" content="좋은 제품, 좋은 가격, 좋은 문화" />
   <meta name="description" content="팽이초콜릿 - 좋은 제품, 좋은 가격, 좋은 문화" />
   <meta name="keywords" content="팽이초콜릿 - 좋은 제품, 좋은 가격, 좋은 문화" />
   <meta name="author" content="팽이초콜릿" />
   <meta name="robots" content="index, follow" />
-  <link rel="manifest" href="/manifest.json?v=1">
-  <meta name="theme-color" content="#000000">
   <meta property="og:title" content="팽이초콜릿" />
   <meta property="og:description" content="좋은 제품, 좋은 가격, 좋은 문화" />
-  <meta property="og:image" content="/images/preview.jpg" />
+  <meta property="og:image" content="https://www.pang2chocolate.com/images/preview.jpg" />
   <meta property="og:url" content="https://www.pang2chocolate.com/" />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png" sizes="192x192">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="팽이초콜릿">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-<style>
-  body { margin: 0; padding: 0; }
-  
-  /* 📍 로딩 화면 */
-  #loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: black;
-    opacity: 0;
-    transition: opacity 0.7s ease;
-  }
-  #loading.show {
-    opacity: 1;
-  }
-  #loading img {
-    width: 200px;
-  }
+  <!-- ✅ 즉시 리디렉션 -->
+  <meta http-equiv="refresh" content="0; url=https://app.pang2chocolate.com" />
 
-  /* 📍 메인 화면 */
-  #main {
-    display: none;
-  }
-
-  .container { position: relative; width: 100%; max-width: 1920px; margin: 0 auto; }
-  .main-image { width: 100%; height: auto; display: block; }
-  
-  .button {
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    background-color: transparent;
-    animation: bounce 2s infinite ease-in-out;
-    transition: transform 0.1s ease, filter 0.1s ease;
-    aspect-ratio: 1 / 1;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    user-select: none;
-  }
-  .button:hover { filter: brightness(1.1); }
-  .button:active { transform: scale(0.92); filter: brightness(85%); animation: none; }
-  .enter-button { top: 55.4%; left: 12.4%; width: 29%; background-image: url("/images/enter-btn.png"); }
-  .suggest-button { top: 55.4%; left: 59.6%; width: 29%; background-image: url("/images/suggest-btn.png"); }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-8px); }
-    50% { transform: translateY(0); }
-    70% { transform: translateY(-4px); }
-  }
-
-  @media screen and (max-width: 768px) {
-    .enter-button { top: 55.1%; left: 11.5%; width: 30%; }
-    .suggest-button { top: 55.1%; left: 59.3%; width: 30%; }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      30% { transform: translateY(-2px); }
-      50% { transform: translateY(0); }
-      70% { transform: translateY(-1px); }
-    }
-  }
-</style>
+  <!-- ✅ 숨겨진 SEO 텍스트 (크롤러용) -->
+  <style>
+    .seo-hidden { position: absolute; left: -9999px; top: -9999px; }
+  </style>
 </head>
 
 <body>
-
-<!-- ✅ 로딩 화면 -->
-<div id="loading">
-  <img src="/images/loading.jpg" alt="로딩 중..." />
-</div>
-
-<!-- ✅ 메인 화면 -->
-<div id="main">
-  <div class="container">
-    <img class="main-image" src="/images/main.jpg" alt="팽이초콜릿 메인" />
-    <a href="https://app.pang2chocolate.com" class="button enter-button"></a>
-    <a href="https://tally.so/r/w5O556" class="button suggest-button"></a>
+  <div class="seo-hidden">
+    <h1>팽이초콜릿 - 좋은 제품, 좋은 가격, 좋은 문화</h1>
+    <p>
+     좋은 제품, 좋은 가격, 좋은 문화
+    </p>
   </div>
-</div>
-
-<!-- ✅ SEO용 숨김 텍스트 -->
-<div style="position: absolute; left: -9999px; top: -9999px;">
-  팽이초콜릿 - 좋은제품을 좋은가격에
-</div>
-
-<!-- ✅ 스크립트 -->
-<script>
-  window.addEventListener("load", function() {
-    const loading = document.getElementById("loading");
-    const main = document.getElementById("main");
-
-    // 📍 로딩 화면 서서히 나타나기
-    loading.classList.add('show');
-
-    setTimeout(function() {
-      // 📍 2초 기다린 후 서서히 사라지기
-      loading.style.opacity = '0';
-      setTimeout(function() {
-        loading.style.display = 'none';
-        main.style.display = 'block';
-      }, 700); // fade-out 애니메이션 시간 (0.7초) 맞춰서
-    }, 2000); // 초기 로딩 대기 시간 (2초)
-  });
-</script>
-
 </body>
 </html>
